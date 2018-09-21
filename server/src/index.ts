@@ -20,10 +20,8 @@ app.use((req, _res, next) => {
 // Api
 app.use('/api', api);
 
-// Docs
-app.use('/docs', (_req, res) => {
-    res.sendFile(path.join(process.cwd(), '..', 'public', 'docs.html'));
-});
+// Static Files
+app.use(express.static(path.join(process.cwd(), '..', 'public')));
 
 // Catch em' all
 app.use('/:id', (req, res) => {

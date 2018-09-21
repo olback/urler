@@ -20,7 +20,7 @@ api.post('/', (req, res) => {
     if (isUrl(req.body.url) && typeof req.body.expires === 'number') {
 
         data.url = req.body.url;
-        data.expires = req.body.expires;
+        data.expires = Number(req.body.expires.toString().substring(0, 10));
 
     } else if (isUrl(req.body.url)) {
 
