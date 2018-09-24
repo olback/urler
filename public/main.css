@@ -25,6 +25,19 @@ input {
 
 input[readonly] {
     border: none;
+    cursor: pointer;
+}
+
+input#out {
+    margin-bottom: 10px;
+}
+
+span.ctc {
+    display: block;
+    margin: auto;
+    text-align: center;
+    font-size: 10pt;
+    color: #666;
 }
 
 button {

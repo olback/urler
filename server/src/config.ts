@@ -5,7 +5,6 @@ const dbConf: ClientConfig = {
     host: '127.0.0.1',
     port: 5432,
     user: 'urler',
-    // password: 'Cz597QJ30rm63yUor09Z',
     password: env.PASSWORD,
     database: 'urler'
 }

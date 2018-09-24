@@ -35,6 +35,7 @@ btn.onclick = () => {
 
 }
 
+// Listen on 'Enter'
 url.onkeydown = e => {
 
     if (e.keyCode === 13) {
@@ -42,5 +43,22 @@ url.onkeydown = e => {
         btn.onclick();
 
     }
+
+}
+
+// Click to copy new url
+out.onclick = () => {
+
+    const text = out.value;
+
+    navigator.clipboard.writeText(text).then(() => {
+
+      console.log('Async: Copying to clipboard was successful!');
+
+    }, err => {
+
+      console.error('Async: Could not copy text: ', err);
+
+    });
 
 }
