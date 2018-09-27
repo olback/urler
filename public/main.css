@@ -16,6 +16,10 @@ h1 {
     text-align: center;
 }
 
+label {
+    margin-left: 1em;
+}
+
 input {
     display: block;
     margin: 15px auto;

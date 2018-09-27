@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Simple free to use, open-source URL shortener." />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <meta name="theme-color" content="#eeeeee" />
         <link rel="stylesheet" href="main.css" />
@@ -11,8 +12,10 @@
     <body>
         <main>
             <h1>Shorten urls</h1>
+            <label for="url">URL</label>
             <input type="url" placeholder="https://urler.xyz" autofocus id="url" />
             <button id="btn">Shorten</button>
+            <label for="out">Shortend URL</label>
             <input type="text" placeholder="New URL will appear here" readonly id ="out" />
             <span class="ctc">Click url to copy</span>
         </main>
