@@ -19,7 +19,7 @@ btn.onclick = () => {
         body: JSON.stringify(data)
     }
 
-    fetch(`${location.origin}/api`, f)
+    fetch(`${location.origin}/api/new`, f)
     .then(r => r.json())
     .then(r => {
         if (r.url) {

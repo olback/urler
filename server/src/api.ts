@@ -5,11 +5,74 @@ import { Client } from 'pg';
 import { dbConf, baseUrl } from './config';
 import * as url from 'url';
 
+interface ApiRoute {
+    method: 'GET' | 'POST';
+    path: string;
+}
+
 const api: Router = Router();
 
 api.use(bodyParser());
 
-api.post('/', (req, res) => {
+api.get('/', (_req, res) => {
+
+    const apiRoutes: ApiRoute[] = [
+        {
+            method: 'GET',
+            path: '/'
+        },
+        {
+            method: 'GET',
+            path: '/:id'
+        },
+        {
+            method: 'POST',
+            path: '/new'
+        }
+    ];
+
+    res.json(apiRoutes);
+
+});
+
+api.get('/:id', (req, res) => {
+
+    const db = new Client(dbConf);
+    db.connect();
+    db.query('SELECT * FROM links WHERE id=$1', [req.params.id], async (error, result) => {
+
+        if (error) {
+
+            res.status(500);
+            res.json({
+                message: 'Internal Server Error'
+            });
+
+        } else if (result.rows.length === 1) {
+
+            res.send({
+                id: result.rows[0].id,
+                url: result.rows[0].url,
+                clicks: Number(result.rows[0].clicks),
+                expires: Number(result.rows[0].expires)
+            });
+
+        } else {
+
+            res.status(404);
+            res.json({
+                message: 'Not Found'
+            });
+
+        }
+
+        db.end();
+
+    });
+
+});
+
+api.post('/new', (req, res) => {
 
     const data = {
         id: (Math.random() * 1E10).toString(36).replace('.', ''),
@@ -32,6 +95,7 @@ api.post('/', (req, res) => {
         res.json({
             message: 'Bad Request'
         });
+
         return;
 
     }

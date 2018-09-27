@@ -8,6 +8,8 @@ main {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -80%);
+    max-width: 600px;
+    width: 90%;
 }
 
 h1 {
@@ -21,6 +23,8 @@ input {
     border-radius: 2px;
     border: 1px solid #ccc;
     outline: none;
+    width: calc(100% - 2em - 2px);
+    text-align: center;
 }
 
 input[readonly] {
