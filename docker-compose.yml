@@ -4,6 +4,7 @@ services:
 
   web:
     image: node:10-stretch
+    restart: unless-stopped
     command: node out/index
     ports:
       - "${PORT}:${PORT}" # host:container
@@ -18,6 +19,7 @@ services:
       - ${URLER_PATH}:/urler/
   db:
     image: postgres
+    restart: unless-stopped
     ports:
     - "5432:5432"
     environment:
