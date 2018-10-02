@@ -6,6 +6,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "start": "node out/index.js",
     "ts:compile": "tsc -p ./",
     "ts:watch": "yarn ts:compile --watch",
     "serve": "nodemon ./out/index.js",

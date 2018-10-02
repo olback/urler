@@ -2,10 +2,25 @@ version: '3.1'
 
 services:
 
+  web:
+    image: node:10-stretch
+    command: node out/index
+    ports:
+      - "${PORT}:${PORT}" # host:container
+    links:
+      - db
+    working_dir: /urler/server
+    environment:
+      PORT: ${PORT}
+      NODE_ENV: ${NODE_ENV}
+      PASSWORD: ${PASSWORD}
+    volumes:
+      - ${URLER_PATH}:/urler/
   db:
     image: postgres
-    restart: always
-    environment:
-      POSTGRES_PASSWORD: example
     ports:
-     - 5432:5432
+    - "5432:5432"
+    environment:
+      POSTGRES_USER: urler
+      POSTGRES_PASSWORD: ${PASSWORD}
+
