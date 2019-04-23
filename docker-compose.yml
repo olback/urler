@@ -21,7 +21,7 @@ services:
     image: postgres
     restart: unless-stopped
     ports:
-    - "5432:5432"
+    # - "5432:5432"
     environment:
       POSTGRES_USER: urler
       POSTGRES_PASSWORD: ${PASSWORD}
