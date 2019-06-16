@@ -2,7 +2,7 @@ import { ClientConfig } from 'pg';
 import { env } from 'process';
 
 const dbConf: ClientConfig = {
-    host: 'db',
+    host: 'postgres',
     port: 5432,
     user: 'urler',
     password: env.PASSWORD,

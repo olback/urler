@@ -9,7 +9,7 @@ services:
     ports:
       - "${PORT}:${PORT}" # host:container
     links:
-      - db
+      - postgres
     working_dir: /urler/server
     environment:
       PORT: ${PORT}
@@ -17,12 +17,15 @@ services:
       PASSWORD: ${PASSWORD}
     volumes:
       - ${URLER_PATH}:/urler/
-  db:
-    image: postgres
+  postgres:
+    image: postgres:10-alpine
     restart: unless-stopped
     # ports:
     # - "5432:5432"
     environment:
       POSTGRES_USER: urler
       POSTGRES_PASSWORD: ${PASSWORD}
+    volumes:
+      - ${URLER_PATH}/data:/var/lib/postgresql/data
+      - ${URLER_PATH}/scripts/postgres:/scripts/
 

@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS links;
+
+CREATE TABLE links (
+    id VARCHAR(15) NOT NULL UNIQUE,
+    url VARCHAR(63) NOT NULL UNIQUE,
+    clicks int NOT NULL,
+    expires bigint NOT NULL
+);
+
+CREATE INDEX idx_links on links (id);
