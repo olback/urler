@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS links;
 
 CREATE TABLE links (
     id VARCHAR(15) NOT NULL UNIQUE,
-    url VARCHAR(63) NOT NULL UNIQUE,
+    url VARCHAR(63) NOT NULL,
     clicks int NOT NULL,
     expires bigint NOT NULL
 );
